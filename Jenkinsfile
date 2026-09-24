@@ -1,15 +1,15 @@
-
+```groovy
 pipeline {
 
     agent {
         docker {
             image 'node:20-alpine'
+            args '-u root'
         }
     }
 
     environment {
         NODE_ENV = 'test'
-        APP_NAME = 'taskflow'
     }
 
     stages {
@@ -48,23 +48,22 @@ pipeline {
     post {
 
         success {
-            echo "======================================"
-            echo "BUILD SUCCESS"
-            echo "Application: ${APP_NAME}"
-            echo "Environment: ${NODE_ENV}"
-            echo "======================================"
+            echo '======================================'
+            echo 'BUILD SUCCESS'
+            echo 'All stages completed successfully.'
+            echo '======================================'
         }
 
         failure {
-            echo "======================================"
-            echo "BUILD FAILED"
-            echo "Application: ${APP_NAME}"
-            echo "Please check the Jenkins console log."
-            echo "======================================"
+            echo '======================================'
+            echo 'BUILD FAILED'
+            echo 'Please check the Jenkins console log.'
+            echo '======================================'
         }
 
         always {
-            echo "Pipeline finished."
+            echo 'Pipeline finished.'
         }
     }
 }
+```
