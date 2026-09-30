@@ -7,13 +7,14 @@ export class OpenAIService {
 
   constructor() {
     this.openai = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY,
+        baseURL: "https://ai.psu.blue/v1",
+      apiKey: process.env.PSU_AI_API_KEY,
     });
   }
 
   async chat(message: string) {
     const response = await this.openai.responses.create({
-      model: 'gpt-5.6-luna',
+      model: 'openai/gpt-5.6-luna',
       input: message,
     });
 
