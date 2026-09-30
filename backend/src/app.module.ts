@@ -19,6 +19,7 @@ import { ReviewsModule } from './reviews/reviews.module';
 import { UploadsModule } from './uploads/uploads.module';
 import { UsersModule } from './users/users.module';
 import r2ClientConfig from '../config/r2.client.config';
+import { OpenAIModule } from './openai/openai.module';
 
 @Module({
   imports: [
@@ -41,6 +42,7 @@ import r2ClientConfig from '../config/r2.client.config';
     FavoritesModule,
     CartModule,
     UploadsModule,
+    OpenAIModule,
     // FoodsModule,
   ],
   controllers: [AppController],
